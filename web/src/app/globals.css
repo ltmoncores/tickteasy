@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: hsl(230 20% 5%);
+  --color-foreground: hsl(210 40% 98%);
+  
+  --color-card: hsl(230 20% 8%);
+  --color-card-foreground: hsl(210 40% 98%);
+
+  --color-primary: hsl(150 100% 50%);
+  --color-primary-foreground: hsl(210 40% 98%);
+
+  --color-secondary: hsl(220 100% 60%);
+  --color-secondary-foreground: hsl(210 40% 98%);
+
+  --color-accent: hsl(280 100% 60%);
+  --color-accent-foreground: hsl(210 40% 98%);
+
+  --color-border: hsl(230 20% 20%);
+  --color-ring: hsl(150 100% 50%);
+  
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    border-color: var(--color-border);
+  }
+  
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(30, 255, 150, 0.05), transparent 25%),
+      radial-gradient(circle at 85% 30%, rgba(130, 0, 255, 0.05), transparent 25%);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-card {
+    background-color: rgba(16, 17, 24, 0.8);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .text-gradient-primary {
+    background-image: linear-gradient(to right, #00FFAA, #0088FF);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .glow-border-primary {
+    border: 1px solid transparent;
+    box-shadow: 0 0 15px rgba(0,255,170,0.3);
+    background-image: linear-gradient(var(--color-card), var(--color-card)), linear-gradient(to right, #00FFAA, #0088FF);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+}
